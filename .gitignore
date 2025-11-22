@@ -1,0 +1,43 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.whl
+*.egg-info/
+
+# --- Virtual Environments ---
+venv/
+env/
+.env
+.venv/
+bin/
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+
+# --- IDE & Editor Settings ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Streamlit ---
+# Secrets should never be pushed
+.streamlit/secrets.toml
+
+# --- PyTorch & Model Checkpoints ---
+# (We ignore temporary checkpoints, but keep your final models in /models folder)
+*.ckpt
+*.pt.trace
+
+# --- Logs & Data ---
+*.log
+logs/
+temp/
+wandb/
