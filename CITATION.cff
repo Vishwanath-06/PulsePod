@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "T"
+  given-names: "Vishwanath"
+title: "PulsePod: A Robust Framework for Real-Time ECG Arrhythmia Detection"
+version: 1.0.0
+date-released: 2025-11-05
+url: "https://github.com/Vishwanath-06/PulsePod"
+institution: "Chaitanya Bharathi Institute of Technology"
+keywords:
+  - "ECG"
+  - "Arrhythmia Detection"
+  - "Spiking Neural Networks"
+  - "Deep Learning"
+  - "Edge AI"
