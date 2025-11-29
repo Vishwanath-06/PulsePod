@@ -1,7 +1,7 @@
 <div align="center">
 
 # 💓 PulsePod
-### Intelligent Edge-Ready ECG Analysis System
+### A Robust Framework for Arrhythmia Detection using Deep and Spiking Neural Networks
 **Deep Learning • Neuromorphic Computing • Real-Time Deployment**
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
@@ -24,14 +24,15 @@
 ## 🩺 Project Overview
 **PulsePod** is an end-to-end AI system designed to detect cardiac abnormalities from ECG signals with high reliability and efficiency. Unlike traditional models that fail when deployed on new patient populations (the **Dataset Shift** problem), PulsePod is built for **generalization**.
 
-By training on a massive, unified dataset combining **MIT-BIH** and **PTB-XL** records: , the system achieves robust performance across diverse demographics. It features a suite of models ranging from high-accuracy **1D-CNNs** to ultra-low-power **Spiking Neural Networks (SNNs)** designed for battery-constrained wearable devices
+![PulsePod Dashboard Demo](assets/dashboard.gif)
+
+By training on a massive, unified dataset combining **MIT-BIH** and **PTB-XL** records , the system achieves robust performance across diverse demographics. It features a suite of models ranging from high-accuracy **1D-CNNs** to ultra-low-power **Spiking Neural Networks (SNNs)** designed for battery-constrained wearable devices
 
 ### 🌟 Key Features
-* **🛡️ Robust Generalization:** Achieved **82% Accuracy** on the unseen PTB-XL dataset, significantly outperforming models trained solely on MIT-BIH
-* **🧠 Neuromorphic Intelligence:** Validated **SNNs** (Leaky Integrate-and-Fire) achieving ~85% accuracy with high energy efficiency
-* **⚖️ Stratified Training:** Models trained on **244,502 heartbeats** with balanced class distribution to prevent bias
+* **🛡️ Robust Generalization:** Achieved **87% Accuracy** on the held-out **Unified Test Set** (61,126 samples), successfully generalizing across diverse signal sources.
+* **🧠 Neuromorphic Intelligence:** Validated **SNNs** (Leaky Integrate-and-Fire) achieving **85% accuracy** on the unified dataset, demonstrating viability for energy-efficient edge hardware.
+* **⚖️ Stratified Training:** Models trained on **244,502 heartbeats** with balanced class distribution to prevent bias and overfitting.
 * **🚀 Real-Time Dashboard:** Interactive Streamlit interface for visualizing live ECG inference and probability confidence.
-
 ---
 
 ## 🔬 Technical Specifications
@@ -90,7 +91,7 @@ To ensure environment stability, requirements are split into two categories.
 ### 1\. Clone the Repository
 
 ```bash
-git clone [https://github.com/Vishwanath-06/PulsePod.git](https://github.com/Vishwanath-06/PulsePod.git)
+git clone https://github.com/Vishwanath-06/PulsePod.git
 cd PulsePod
 git lfs install
 git lfs pull
@@ -147,14 +148,24 @@ python data/create_unified_test_set.py
 
 ## 📊 Performance & Results
 
-We evaluated our models on a held-out, multi-domain test set (Unified MIT-BIH + PTB-XL) to ensure true robustness.
+We evaluated our models on a held-out, multi-domain test set (Unified MIT-BIH + PTB-XL, **61,126 samples**) to ensure true robustness.
 
-| Model Architecture | Precision (Abnormal) | Recall (Abnormal) | F1-Score | Use Case |
-| :--- | :---: | :---: | :---: | :--- |
-| **Standalone CNN** | 89% | 86% | 88% | Best Overall Balance |
-| **Spiking NN (SNN)** | 85% | 87% | 86% | Ultra-Low Power / High Recall |
-| **CNN + LSTM** | 91% | 82% | 87% | Precision / False Alarm Reduction |
+| Model Architecture | Accuracy | Precision (Abnormal) | Recall (Abnormal) | F1-Score | Use Case |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Robust CNN** | **87%** | **0.89** | 0.86 | **0.88** | Best Overall Balance |
+| **Spiking NN (SNN)** | 85% | 0.85 | **0.87** | 0.86 | Ultra-Low Power / High Recall |
+| **CNN + LSTM** | 75%* | 0.95 | 0.58 | 0.72 | Precision / Specificity |
 
+*> **Note:** While CNN-LSTM performed well on clean data, the standalone CNN demonstrated superior generalization on the heterogeneous PTB-XL test set (82% vs 75%).*
+
+### 📈 Detailed Evaluation
+The confusion matrices below demonstrate the Robust CNN's ability to minimize False Negatives (critical for healthcare), while the metrics comparison highlights the SNN's competitive performance despite being energy-efficient.
+
+**Confusion Matrices (Generalization Test)**
+![Confusion Matrices](assets/results.png)
+
+**Model-wise Metrics Comparison**
+![Metrics Comparison](assets/metrics.png)
 -----
 
 ## 📂 Project Structure
