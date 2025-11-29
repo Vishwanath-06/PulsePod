@@ -25,8 +25,8 @@ except ImportError:
 # =============================================================================
 # --- PATH CONFIGURATION ---
 # =============================================================================
-DATA_DIR = r"V:\Projects\MP\Ver3.0\cross_validation_project\data\unified_test_set"
-MODELS_DIR = r"V:\Projects\MP\Ver3.0\cross_validation_project\models"
+DATA_DIR = r"....\unified_test_set"
+MODELS_DIR = r"....\models"
 LOG_FILE = 'logs/streamlit_events.log'
 
 # Ensure log directory exists
